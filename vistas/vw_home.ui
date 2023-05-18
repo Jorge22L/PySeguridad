@@ -6,20 +6,32 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>1157</width>
     <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Seguridad</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>-1</x>
+      <y>-1</y>
+      <width>1141</width>
+      <height>571</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout"/>
+   </widget>
+  </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>1157</width>
      <height>22</height>
     </rect>
    </property>
@@ -30,6 +42,8 @@
     <addaction name="actionListar_Usuarios"/>
     <addaction name="actionAgregar"/>
     <addaction name="actionModificar"/>
+    <addaction name="separator"/>
+    <addaction name="actionAsignar_Rol"/>
    </widget>
    <widget class="QMenu" name="menuRol">
     <property name="title">
@@ -54,6 +68,11 @@
   <action name="actionModificar">
    <property name="text">
     <string>Modificar</string>
+   </property>
+  </action>
+  <action name="actionAsignar_Rol">
+   <property name="text">
+    <string>Asignar Rol</string>
    </property>
   </action>
  </widget>
