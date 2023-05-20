@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>776</width>
-    <height>678</height>
+    <width>1095</width>
+    <height>524</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,10 +17,10 @@
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>-10</x>
-      <y>160</y>
-      <width>771</width>
-      <height>521</height>
+      <x>10</x>
+      <y>110</y>
+      <width>541</width>
+      <height>341</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
@@ -61,18 +61,78 @@
      </item>
     </layout>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QWidget" name="formLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>60</y>
-      <width>121</width>
-      <height>21</height>
+      <x>570</x>
+      <y>110</y>
+      <width>491</width>
+      <height>341</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Lista de Usuarios</string>
-    </property>
+    <layout class="QFormLayout" name="formLayout">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Nombre</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="txtNombreEdit"/>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>Apellido</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="txtApellidoEdit"/>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>Nombre Usuario</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="txtNombreUsuarioEdit"/>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>Clave</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="txtClaveEdit"/>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLineEdit" name="txtIdUsuarioEdit">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QPushButton" name="btnEditarUsuario">
+       <property name="text">
+        <string>Editar Usuario</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QPushButton" name="btnEliminarUsuario">
+       <property name="text">
+        <string>Eliminar Usuario</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
  </widget>
