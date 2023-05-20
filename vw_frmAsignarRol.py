@@ -1,17 +1,13 @@
 from PyQt6 import QtWidgets
-<<<<<<< HEAD
 
 from datos import DT_UsuarioRol
 from datos.dt_rol import DT_Rol
 from datos.dt_usuario import DT_Usuario
 from entidades.usuario_rol import Usuario_Rol
-=======
->>>>>>> 25afe3541f679131a853a949f7c215f61ddd2da1
 from vistas import frmAsignarRol
 class vw_frmAsignarRolW(QtWidgets.QMainWindow, frmAsignarRol.Ui_frmAsignarRol):
     def __init__(self, parent=None):
         super(vw_frmAsignarRolW,self).__init__(parent)
-<<<<<<< HEAD
         self.dtr = DT_UsuarioRol
         self.setupUi(self)
         self.llenarComboRol()
@@ -47,6 +43,3 @@ class vw_frmAsignarRolW(QtWidgets.QMainWindow, frmAsignarRol.Ui_frmAsignarRol):
     def handleActivated(self, index):
         print(self.cbxRol.itemText(index))
         print(self.cbxRol.itemData(index))
-=======
-        self.setupUi(self)
->>>>>>> 25afe3541f679131a853a949f7c215f61ddd2da1
