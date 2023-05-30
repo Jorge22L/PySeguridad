@@ -1,6 +1,10 @@
+import random
+import string
+
 import PyQt6
 from PyQt6 import QtWidgets
-from PyQt6.QtWidgets import QApplication, QAbstractItemView
+from PyQt6.QtCore import Qt
+from PyQt6.QtWidgets import QApplication, QAbstractItemView, QTableWidgetItem
 
 from datos.dt_usuario import DT_Usuario
 from entidades.usuario import Usuario
@@ -13,9 +17,28 @@ class vw_lista_usuarios_Widget(QtWidgets.QMainWindow, vw_lista_usuarios.Ui_frmLi
         self.setupUi(self)
         self.txtIdUsuarioEdit.hide()
         self.listarUsuarios()
+        self.btnBuscar.clicked.connect(self.buscarUsuario)
         self.tw_usuarios.clicked.connect(self.clickTablaCelda)
         self.btnEditarUsuario.clicked.connect(self.actualizarUsuarioClick)
         self.btnEliminarUsuario.clicked.connect(self.eliminarUsuario)
+
+
+
+    def buscarUsuario(self, s):
+        self.tw_usuarios.setCurrentItem(None)
+        busqueda = self.txtBuscar.text()
+        users = DT_Usuario.buscarUsuarios(busqueda)
+        indexes = len(users)
+        self.tw_usuarios.setRowCount(indexes)
+        tablerow = 0
+
+        for res in users:
+            self.tw_usuarios.setItem(tablerow, 0, QtWidgets.QTableWidgetItem(str(res.idusuario)))
+            self.tw_usuarios.setItem(tablerow, 1, QtWidgets.QTableWidgetItem(res.nombre))
+            self.tw_usuarios.setItem(tablerow, 2, QtWidgets.QTableWidgetItem(res.apellido))
+            self.tw_usuarios.setItem(tablerow, 3, QtWidgets.QTableWidgetItem(res.nombreusuario))
+            self.tw_usuarios.setItem(tablerow, 4, QtWidgets.QTableWidgetItem(str(res.fecha_creacion)))
+            tablerow += 1
 
 
     def listarUsuarios(self):

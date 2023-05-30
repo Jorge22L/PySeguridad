@@ -64,7 +64,33 @@
     </property>
     <layout class="QGridLayout" name="gridLayout">
      <item row="0" column="0">
-      <widget class="QTableWidget" name="tableWidget"/>
+      <widget class="QTableWidget" name="tableWidget">
+       <column>
+        <property name="text">
+         <string>Id Usuario Rol</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Nombre</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Apellido</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Nombre Usuario</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Rol</string>
+        </property>
+       </column>
+      </widget>
      </item>
     </layout>
    </widget>

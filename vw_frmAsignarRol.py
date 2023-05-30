@@ -2,7 +2,9 @@ from PyQt6 import QtWidgets
 
 from datos import DT_UsuarioRol
 from datos.dt_rol import DT_Rol
+from datos.DT_V_UsuarioRol import DT_V_UsuarioRol
 from datos.dt_usuario import DT_Usuario
+from datos.DT_UsuarioRol import DT_UsuarioRol
 from entidades.usuario_rol import Usuario_Rol
 from vistas import frmAsignarRol
 class vw_frmAsignarRolW(QtWidgets.QMainWindow, frmAsignarRol.Ui_frmAsignarRol):
@@ -12,6 +14,7 @@ class vw_frmAsignarRolW(QtWidgets.QMainWindow, frmAsignarRol.Ui_frmAsignarRol):
         self.setupUi(self)
         self.llenarComboRol()
         self.llenarComboUsuario()
+        self.listarRolesUsuario()
         self.cbxRol.activated.connect(self.handleActivated)
         self.btnAsignarRol.clicked.connect(self.asignarRol)
 
@@ -39,6 +42,19 @@ class vw_frmAsignarRolW(QtWidgets.QMainWindow, frmAsignarRol.Ui_frmAsignarRol):
             self.dtr.DT_Rol.asignarRol(Usuario_Rol)
         except Exception as e:
             print(f'Ocurrió una excepcion al guardar: {e}')
+
+    def listarRolesUsuario(self):
+        usuario_roles = DT_V_UsuarioRol.listarUsuarioRol()
+        indexes = len(usuario_roles)
+        self.tableWidget.setRowCount(indexes)
+        tablerow = 0
+        for row in usuario_roles:
+            self.tableWidget.setItem(tablerow, 0, QtWidgets.QTableWidgetItem(str(row.idUsuarioRol)))
+            self.tableWidget.setItem(tablerow, 1, QtWidgets.QTableWidgetItem(str(row.nombre)))
+            self.tableWidget.setItem(tablerow, 2, QtWidgets.QTableWidgetItem(str(row.apellido)))
+            self.tableWidget.setItem(tablerow, 3, QtWidgets.QTableWidgetItem(str(row.nombreusuario)))
+            self.tableWidget.setItem(tablerow, 4, QtWidgets.QTableWidgetItem(row.descripcion))
+
 
     def handleActivated(self, index):
         print(self.cbxRol.itemText(index))

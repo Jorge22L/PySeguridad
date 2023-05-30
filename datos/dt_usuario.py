@@ -9,12 +9,26 @@ class DT_Usuario:
     _INSERT = "INSERT INTO seguridad.usuario (nombre, apellido, nombreusuario, clave, fecha_creacion, estado) values (%s, %s, %s, %s, now(), 1)"
     _UPDATE = "UPDATE usuario set nombre=%s, apellido = %s, nombreusuario = %s, clave = %s where idusuario = %s"
     _DELETE = "UPDATE usuario set estado=3 where idusuario = %s"
+    _BUSCAR = "SELECT * FROM seguridad.usuario where nombreusuario like %s and estado<>3"
     _cursor = None
 
     @classmethod
     def listarUsuario(cls):
         cursor = Conexion.getConnection().cursor()
         cursor.execute(cls._SELECT)
+        resultado = cursor.fetchall()
+        usuarios = []
+        for x in resultado:
+            u = Usuario(x['idusuario'], x['nombre'], x['apellido'], x['nombreusuario'],
+                x['clave'], x['fecha_creacion'], x['estado'])
+            usuarios.append(u)
+            print('usuarios', usuarios)
+        return usuarios
+
+    @classmethod
+    def buscarUsuarios(cls, busqueda):
+        cursor = Conexion.getConnection().cursor()
+        cursor.execute(cls._BUSCAR, busqueda)
         resultado = cursor.fetchall()
         usuarios = []
         for x in resultado:

@@ -1,26 +1,26 @@
 import sys
 
-from entidades.rol import Rol
+from entidades.usuario_rol import Usuario_Rol
 from .conexion import Conexion
 
 
-class DT_Rol:
-    _SELECT = "SELECT * FROM seguridad.rol"
+class DT_UsuarioRol:
+    _SELECT = "SELECT * FROM seguridad.usuario_rol"
     _INSERT = "INSERT INTO seguridad.usuario_rol (idUsuario, idRol) values (%s,%s)"
 
     _cursor = None
 
     @classmethod
-    def listarRol(cls):
+    def listarUsuarioRol(cls):
         cursor = Conexion.getConnection().cursor()
         cursor.execute(cls._SELECT)
         resultado = cursor.fetchall()
-        roles = []
-        for r in resultado:
-            rol = Rol(r['idrol'], r['descripcion'])
-            roles.append(rol)
-        print('roles', roles)
-        return roles
+        usuario_rol = []
+        for ur in resultado:
+            usuario_roles = Usuario_Rol(ur['idUsuarioRol'],ur['idUsuario'], ur['idRol'])
+            usuario_rol.append(usuario_roles)
+        print('Roles por usuario', usuario_rol)
+        return usuario_rol
 
     @classmethod
     def asignarRol(cls, usuario_rol):
@@ -71,7 +71,7 @@ class DT_Rol:
 
 
 if __name__ == '__main__':
-    roles = DT_Rol.listarRol()
+    roles = DT_UsuarioRol.listarRol()
     for r in roles:
         print(r)
     #INSERTAR REGISTRO

@@ -68,6 +68,7 @@ class Ui_frmListaUsuarios(object):
         self.txtClaveEdit.setObjectName("txtClaveEdit")
         self.formLayout.setWidget(3, QtWidgets.QFormLayout.ItemRole.FieldRole, self.txtClaveEdit)
         self.txtIdUsuarioEdit = QtWidgets.QLineEdit(parent=self.formLayoutWidget)
+        self.txtIdUsuarioEdit.setEnabled(False)
         self.txtIdUsuarioEdit.setObjectName("txtIdUsuarioEdit")
         self.formLayout.setWidget(4, QtWidgets.QFormLayout.ItemRole.FieldRole, self.txtIdUsuarioEdit)
         self.btnEditarUsuario = QtWidgets.QPushButton(parent=self.formLayoutWidget)
@@ -76,6 +77,15 @@ class Ui_frmListaUsuarios(object):
         self.btnEliminarUsuario = QtWidgets.QPushButton(parent=self.formLayoutWidget)
         self.btnEliminarUsuario.setObjectName("btnEliminarUsuario")
         self.formLayout.setWidget(6, QtWidgets.QFormLayout.ItemRole.FieldRole, self.btnEliminarUsuario)
+        self.txtBuscar = QtWidgets.QLineEdit(parent=self.centralwidget)
+        self.txtBuscar.setGeometry(QtCore.QRect(12, 70, 401, 25))
+        self.txtBuscar.setObjectName("txtBuscar")
+        self.label = QtWidgets.QLabel(parent=self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(20, 40, 67, 17))
+        self.label.setObjectName("label")
+        self.btnBuscar = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.btnBuscar.setGeometry(QtCore.QRect(420, 70, 89, 25))
+        self.btnBuscar.setObjectName("btnBuscar")
         frmListaUsuarios.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(frmListaUsuarios)
@@ -100,6 +110,9 @@ class Ui_frmListaUsuarios(object):
         self.label_5.setText(_translate("frmListaUsuarios", "Clave"))
         self.btnEditarUsuario.setText(_translate("frmListaUsuarios", "Editar Usuario"))
         self.btnEliminarUsuario.setText(_translate("frmListaUsuarios", "Eliminar Usuario"))
+        self.txtBuscar.setToolTip(_translate("frmListaUsuarios", "Escriba el término a buscar"))
+        self.label.setText(_translate("frmListaUsuarios", "Buscar"))
+        self.btnBuscar.setText(_translate("frmListaUsuarios", "Buscar"))
 
 
 if __name__ == "__main__":
